@@ -1,9 +1,10 @@
 module.exports = function(io){
 
     let credenciales =[
-        {username:"16016300", pwd: "1234"},
-        {username:"16016301", pwd: "1234"},
-        {username:"16016302", pwd: "1234"},
+        {username:"Yosi", pwd: "1234"},
+        {username:"Sara", pwd: "1234"},
+        {username:"Edie", pwd: "1234"},
+        {username:"Jorge", pwd: "1234"},
     ]
 
     let clients = []
@@ -12,6 +13,13 @@ module.exports = function(io){
     io.on('connection',(socket)=>{
          console.log("Nuevo usuario conectado")
          console.log(socket.id)
+
+        socket.on("send message",(data)=>{
+            io.sockets.emit("new message",{
+                msg: data,
+                username: socket.username
+            })
+        })
 
          socket.on("login",(data,cb)=>{
             //console.log(data);
@@ -34,6 +42,7 @@ module.exports = function(io){
                     socket.username = data.username
                     clients.push(socket.username)
                     cb(false)
+                    io.sockets.emit("usernames",clients);
                  }
                  
              }else{
@@ -42,5 +51,12 @@ module.exports = function(io){
              }
             console.log(clients);
          }) 
+
+         socket.on("disconnect",data =>{
+             if(!socket.username) return 
+             clients.splice(clients.indexOf(socket.username),1)
+             io.sockets.emit("usernames",clients)
+
+         })
     })
 }

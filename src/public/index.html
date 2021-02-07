@@ -17,7 +17,7 @@
     <div id="login-container" class="card col-md-4 mt-5 mx-auto">
                 <div class="card-header">Iniciar sesión</div>
                 <div id="ErroLogin" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
-                        <strong>¡Huston tenemos problemas!</strong>
+                        <strong>¡Hughston tenemos problemas!</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -43,7 +43,7 @@
 <div id="contendor-chat-user" class="container border border-secondary mt-2">
         <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-header">Chats</div>
+                    <div class="card-header">Clientes</div>
                     <div class="card-body">
                             <ul id="list-usuarios" class="list-group list-group-flush">
                                     <!--<li class="list-group-item">Jorge</li>-->
@@ -57,13 +57,14 @@
                 <div class="card" style="width: 40rem;">
                     <div class="card-header">
                     </div>
-                    <div class="card-body"></div>
-                    <form class="card-footer">
+                    <div class="card-body" id="chat-body"></div>
+                    <form class="card-footer" id="form-msg">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                <input type="text" class="form-control" placeholder="Mensaje" aria-label="Example text with button addon" aria-describedby="button-addon1">    
-                                <button class="btn btn-outline-primary" type="button" id="sendmsj">Enviar</button>   
+                                <input type="text"  id="msg" class="form-control" placeholder="Mensaje" aria-label="Example text with button addon" aria-describedby="button-addon1">    
+                                <button class="btn btn-outline-primary" type="submit" id="sendmsj">Enviar</button>   
                             </div>
+                    </form>
                     </div>
                 </div>
         </div>
